@@ -6,7 +6,13 @@ const getFizzBuzzValue = (num: number) => {
   return result || num;
 };
 
-export const getFizzBuzzService = (from: number, to: number) => {
+export const getFizzBuzzService = ({
+  from,
+  to,
+}: {
+  from: number;
+  to: number;
+}) => {
   const result = [];
 
   for (let i = from; i <= to; i++) {

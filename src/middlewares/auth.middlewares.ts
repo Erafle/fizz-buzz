@@ -1,4 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
+import { ForbiddenError, UnauthorizedError } from "../errors/api.errors.js";
 
 export const authMiddleware = (
   req: Request,
@@ -8,13 +9,10 @@ export const authMiddleware = (
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
-    return res.status(401).json({ message: "You are not authenticated" });
+    throw new UnauthorizedError();
   }
   if (authHeader !== process.env.API_KEY) {
-    return res
-      .status(403)
-      .json({ message: "You don't have permission to access this resource" });
+    throw new ForbiddenError();
   }
-
   next();
 };

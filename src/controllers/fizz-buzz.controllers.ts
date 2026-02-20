@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
-import { fizzBuzzQuerySchema } from "../schemas/fizz-buzz.schemas.js";
 import { getFizzBuzzService } from "../services/fizz-buzz.services.js";
+import { validateQuery } from "../utils/validation.utils.js";
+import { fizzBuzzQuerySchema } from "../schemas/fizz-buzz.schemas.js";
 
 export const getFizzBuzzController = (
   req: Request,
@@ -8,10 +9,10 @@ export const getFizzBuzzController = (
   next: NextFunction,
 ) => {
   try {
-    const { from, to } = fizzBuzzQuerySchema.parse(req.query);
-    const fizzBuzz = getFizzBuzzService(from, to);
+    const query = validateQuery(req, fizzBuzzQuerySchema);
+    const fizzBuzz = getFizzBuzzService(query);
 
-    res.json(fizzBuzz);
+    res.json({ data: fizzBuzz });
   } catch (error) {
     next(error);
   }
