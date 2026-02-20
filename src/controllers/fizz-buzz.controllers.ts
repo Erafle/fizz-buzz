@@ -8,12 +8,8 @@ export const getFizzBuzzController = (
   res: Response,
   next: NextFunction,
 ) => {
-  try {
-    const query = validateQuery(req, fizzBuzzQuerySchema);
-    const fizzBuzz = getFizzBuzzService(query);
+  const query = validateQuery(req, fizzBuzzQuerySchema);
+  const fizzBuzz = getFizzBuzzService(query);
 
-    res.json({ data: fizzBuzz });
-  } catch (error) {
-    next(error);
-  }
+  res.json({ data: fizzBuzz });
 };
