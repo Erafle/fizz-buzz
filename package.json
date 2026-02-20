@@ -6,7 +6,7 @@
   "author": "Jérémy Aubourg",
   "type": "module",
   "scripts": {
-    "dev": "tsx src/app.ts",
+    "dev": "tsx src/server.ts",
     "format:write": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "eslint .",
