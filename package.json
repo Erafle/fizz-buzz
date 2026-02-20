@@ -6,11 +6,13 @@
   "author": "Jérémy Aubourg",
   "type": "module",
   "scripts": {
+    "build": "tsc",
     "dev": "tsx --watch src/server.ts",
     "format:write": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "start": "node dist/server.js",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
   },
