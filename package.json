@@ -13,6 +13,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start": "node dist/server.js",
+    "test": "vitest run && playwright test",
     "test:e2e": "playwright test",
     "test:unit": "vitest",
     "test:unit:coverage": "vitest run --coverage"
