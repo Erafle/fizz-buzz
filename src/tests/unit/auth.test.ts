@@ -17,11 +17,11 @@ describe("authMiddleware", () => {
   const apiKey = "Test";
 
   beforeEach(() => {
+    vi.clearAllMocks();
     process.env.API_KEY = apiKey;
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
     delete process.env.API_KEY;
   });
 
@@ -37,20 +37,18 @@ describe("authMiddleware", () => {
   it("should throw UnauthorizedError when authorization header is missing", () => {
     const req = mockRequest();
     const res = mockResponse();
+    const call = () => authMiddleware(req, res, mockNext);
 
-    expect(() => authMiddleware(req, res, mockNext)).toThrow(UnauthorizedError);
-    expect(() => authMiddleware(req, res, mockNext)).toThrow(
-      "Invalid or missing API key",
-    );
+    expect(call).toThrow(UnauthorizedError);
+    expect(call).toThrow("Invalid or missing API key");
   });
 
   it("should throw UnauthorizedError when API key is invalid", () => {
     const req = mockRequest("wrong-key");
     const res = mockResponse();
+    const call = () => authMiddleware(req, res, mockNext);
 
-    expect(() => authMiddleware(req, res, mockNext)).toThrow(UnauthorizedError);
-    expect(() => authMiddleware(req, res, mockNext)).toThrow(
-      "Invalid or missing API key",
-    );
+    expect(call).toThrow(UnauthorizedError);
+    expect(call).toThrow("Invalid or missing API key");
   });
 });
