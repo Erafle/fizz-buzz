@@ -13,9 +13,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start": "node dist/server.js",
-    "test": "vitest run && playwright test",
+    "test": "npm run test:unit && npm run test:e2e",
     "test:e2e": "playwright test",
-    "test:unit": "vitest",
+    "test:unit": "vitest run",
     "test:unit:coverage": "vitest run --coverage"
   },
   "dependencies": {
