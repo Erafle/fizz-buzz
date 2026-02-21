@@ -97,9 +97,8 @@ curl -H "Authorization: your-api-key" "http://localhost:3000/api/fizz-buzz?from=
 
 #### Error Responses
 
-| Status | Name                  | When                                 |
-| ------ | --------------------- | ------------------------------------ |
-| `400`  | `ValidationError`     | Invalid or out-of-range query params |
-| `401`  | `UnauthorizedError`   | Missing `Authorization` header       |
-| `403`  | `ForbiddenError`      | Invalid API key                      |
-| `500`  | `InternalServerError` | Unexpected server error              |
+| Status | Name                  | When                                              |
+| ------ | --------------------- | ------------------------------------------------- |
+| `400`  | `ValidationError`     | Invalid or out-of-range query params              |
+| `401`  | `UnauthorizedError`   | Missing `Authorization` header or invalid API key |
+| `500`  | `InternalServerError` | Unexpected server error                           |

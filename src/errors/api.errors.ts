@@ -21,15 +21,8 @@ export class ValidationError extends ApiError {
 }
 
 export class UnauthorizedError extends ApiError {
-  constructor() {
-    super("You are not authenticated", 401);
+  constructor(message: string) {
+    super(message, 401);
     this.name = "UnauthorizedError";
-  }
-}
-
-export class ForbiddenError extends ApiError {
-  constructor() {
-    super("You don't have permission to access this resource", 403);
-    this.name = "ForbiddenError";
   }
 }

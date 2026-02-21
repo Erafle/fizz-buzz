@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { ForbiddenError, UnauthorizedError } from "../errors/api.errors.ts";
+import { UnauthorizedError } from "../errors/api.errors.ts";
 
 export const authMiddleware = (
   req: Request,
@@ -8,11 +8,8 @@ export const authMiddleware = (
 ) => {
   const authHeader = req.headers.authorization;
 
-  if (!authHeader) {
-    throw new UnauthorizedError();
-  }
-  if (authHeader !== process.env.API_KEY) {
-    throw new ForbiddenError();
+  if (!authHeader || authHeader !== process.env.API_KEY) {
+    throw new UnauthorizedError("Invalid or missing API key");
   }
   next();
 };

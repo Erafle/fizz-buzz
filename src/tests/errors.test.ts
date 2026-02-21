@@ -3,7 +3,6 @@ import {
   ApiError,
   ValidationError,
   UnauthorizedError,
-  ForbiddenError,
 } from "../errors/api.errors.ts";
 import * as z from "zod";
 
@@ -52,33 +51,22 @@ describe("ValidationError", () => {
 
 describe("UnauthorizedError", () => {
   it("should set message, status and name", () => {
-    const error = new UnauthorizedError();
+    const error = new UnauthorizedError("Authorization header is missing");
 
-    expect(error.message).toBe("You are not authenticated");
+    expect(error.message).toBe("Authorization header is missing");
     expect(error.status).toBe(401);
     expect(error.name).toBe("UnauthorizedError");
   });
 
-  it("should be an instance of ApiError", () => {
-    const error = new UnauthorizedError();
+  it("should accept a custom message", () => {
+    const error = new UnauthorizedError("Invalid API key");
 
-    expect(error).toBeInstanceOf(ApiError);
-  });
-});
-
-describe("ForbiddenError", () => {
-  it("should set message, status and name", () => {
-    const error = new ForbiddenError();
-
-    expect(error.message).toBe(
-      "You don't have permission to access this resource",
-    );
-    expect(error.status).toBe(403);
-    expect(error.name).toBe("ForbiddenError");
+    expect(error.message).toBe("Invalid API key");
+    expect(error.status).toBe(401);
   });
 
   it("should be an instance of ApiError", () => {
-    const error = new ForbiddenError();
+    const error = new UnauthorizedError("Not authenticated");
 
     expect(error).toBeInstanceOf(ApiError);
   });
