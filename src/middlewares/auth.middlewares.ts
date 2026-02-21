@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { ForbiddenError, UnauthorizedError } from "../errors/api.errors.js";
+import { ForbiddenError, UnauthorizedError } from "../errors/api.errors.ts";
 
 export const authMiddleware = (
   req: Request,

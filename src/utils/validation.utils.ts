@@ -1,6 +1,6 @@
 import type { Request } from "express";
-import { z } from "zod";
-import { ValidationError } from "../errors/api.errors.js";
+import * as z from "zod";
+import { ValidationError } from "../errors/api.errors.ts";
 
 export const validateQuery = <T>(req: Request, schema: z.ZodType<T>) => {
   const parsedSchema = schema.safeParse(req.query);

@@ -1,7 +1,7 @@
 import express from "express";
-import fizzBuzzRoutes from "./routes/fizz-buzz.routes.js";
-import { authMiddleware } from "./middlewares/auth.middlewares.js";
-import { errorHandlerMiddleware } from "./middlewares/error.middlewares.js";
+import fizzBuzzRoutes from "./routes/fizz-buzz.routes.ts";
+import { authMiddleware } from "./middlewares/auth.middlewares.ts";
+import { errorHandlerMiddleware } from "./middlewares/error.middlewares.ts";
 
 const app = express();
 

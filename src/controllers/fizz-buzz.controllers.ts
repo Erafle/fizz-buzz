@@ -1,13 +1,9 @@
-import type { Request, Response, NextFunction } from "express";
-import { getFizzBuzzService } from "../services/fizz-buzz.services.js";
-import { validateQuery } from "../utils/validation.utils.js";
-import { fizzBuzzQuerySchema } from "../schemas/fizz-buzz.schemas.js";
+import type { Request, Response } from "express";
+import { getFizzBuzzService } from "../services/fizz-buzz.services.ts";
+import { validateQuery } from "../utils/validation.utils.ts";
+import { fizzBuzzQuerySchema } from "../schemas/fizz-buzz.schemas.ts";
 
-export const getFizzBuzzController = (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const getFizzBuzzController = (req: Request, res: Response) => {
   const query = validateQuery(req, fizzBuzzQuerySchema);
   const fizzBuzz = getFizzBuzzService(query);
 

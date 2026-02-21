@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { z } from "zod";
-import { validateQuery } from "../utils/validation.utils.js";
-import { ValidationError } from "../errors/api.errors.js";
+import * as z from "zod";
+import { validateQuery } from "../utils/validation.utils.ts";
+import { ValidationError } from "../errors/api.errors.ts";
 import type { Request } from "express";
 
 const mockRequest = (query: Request["query"]) => {

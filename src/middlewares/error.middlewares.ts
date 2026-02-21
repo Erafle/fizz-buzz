@@ -1,11 +1,11 @@
 import type { Request, Response, NextFunction } from "express";
-import { ApiError, ValidationError } from "../errors/api.errors.js";
+import { ApiError, ValidationError } from "../errors/api.errors.ts";
 
 export const errorHandlerMiddleware = (
-  err: ApiError,
+  err: Error,
   req: Request,
   res: Response,
-  next: NextFunction,
+  _next: NextFunction,
 ) => {
   if (err instanceof ValidationError) {
     return res.status(err.status).json({

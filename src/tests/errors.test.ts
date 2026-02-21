@@ -4,8 +4,8 @@ import {
   ValidationError,
   UnauthorizedError,
   ForbiddenError,
-} from "../errors/api.errors.js";
-import type z from "zod";
+} from "../errors/api.errors.ts";
+import * as z from "zod";
 
 describe("ApiError", () => {
   it("should set message, status and name", () => {
