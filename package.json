@@ -13,8 +13,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start": "node dist/server.js",
-    "test": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:e2e": "playwright test",
+    "test:unit": "vitest",
+    "test:unit:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "dotenv": "^17.3.1",
@@ -23,7 +24,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.58.2",
     "@types/express": "^5.0.6",
+    "@types/node": "^25.3.0",
     "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^10.0.1",
     "eslint-config-prettier": "^10.1.8",

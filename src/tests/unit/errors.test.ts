@@ -3,7 +3,7 @@ import {
   ApiError,
   ValidationError,
   UnauthorizedError,
-} from "../errors/api.errors.ts";
+} from "../../errors/api.errors.ts";
 import * as z from "zod";
 
 describe("ApiError", () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getFizzBuzzService } from "../services/fizz-buzz.services.ts";
+import { getFizzBuzzService } from "../../services/fizz-buzz.services.ts";
 
 describe("getFizzBuzzService", () => {
   it("returns 'Fizz' for multiples of 3 only", () => {

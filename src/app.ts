@@ -5,6 +5,9 @@ import { errorHandlerMiddleware } from "./middlewares/error.middlewares.ts";
 
 const app = express();
 
+app.get("/", (_req, res) => {
+  res.sendStatus(200);
+});
 app.use("/api/fizz-buzz", authMiddleware, fizzBuzzRoutes);
 app.use(errorHandlerMiddleware);
 
