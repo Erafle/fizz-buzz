@@ -15,7 +15,7 @@ For each number in a given range:
 
 ### Prerequisites
 
-- Node.js ≥ 20
+- Node.js (latest LTS version)
 
 ### Installation
 
