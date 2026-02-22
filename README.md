@@ -20,7 +20,7 @@ For each number in a given range:
 ### Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Erafle/fizz-buzz.git
 cd fizz-buzz
 npm install
 ```
